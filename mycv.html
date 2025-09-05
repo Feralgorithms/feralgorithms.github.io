@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Ferdy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8fafc;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            position: relative;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 40px 30px;
+            position: relative;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: url('/ferdy.png');
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 13px;
+        }
+
+        .contact-item i {
+            width: 20px;
+            margin-right: 12px;
+            opacity: 0.8;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-category {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .skill-category h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            font-size: 12px;
+            margin-bottom: 6px;
+            padding-left: 15px;
+            position: relative;
+            opacity: 0.85;
+        }
+
+        .skill-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 8px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 45px;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+
+        .header .subtitle {
+            font-size: 16px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #e2e8f0;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #2563eb;
+        }
+
+        .profile-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #475569;
+            text-align: justify;
+        }
+
+        .education-item,
+        .experience-item,
+        .achievement-item {
+            margin-bottom: 25px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .education-item::before,
+        .experience-item::before,
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #2563eb;
+            border-radius: 50%;
+            border: 3px solid #bfdbfe;
+        }
+
+        .item-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 4px;
+        }
+
+        .item-subtitle {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .item-description {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .item-description ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .item-description li {
+            margin-bottom: 4px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .item-description li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .references {
+            text-align: center;
+            font-style: italic;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 2px solid #e2e8f0;
+            padding-top: 20px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: none;
+                min-height: auto;
+                page-break-inside: avoid;
+            }
+
+            .sidebar {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Download Button */
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .download-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+        }
+
+        @media screen and (max-width: 768px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+                margin: 10px;
+            }
+
+            .sidebar {
+                padding: 30px 20px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .download-btn {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 20px auto;
+                display: block;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="download-btn" onclick="downloadPDF()">
+        <i class="fas fa-download"></i> Download PDF
+    </button>
+
+    <div class="cv-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-image"></div>
+                <div class="name">FERDY</div>
+                <div class="title">Mahasiswa Teknik Informatika</div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Gellenge, 23 Juni 2005</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0852 4013 6159</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>frdytmvn@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-home"></i>
+                    <span>Jl. Pasar Sentral, Soppeng</span>
+                </div>
+            </div>
+
+            <div class="section-title">KEMAMPUAN</div>
+
+            <div class="skill-category">
+                <h4>Microsoft Office</h4>
+                <ul class="skill-list">
+                    <li>Microsoft Word</li>
+                    <li>Microsoft Excel</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h4>Programming</h4>
+                <ul class="skill-list">
+                    <li>HTML & CSS</li>
+                    <li>Bootstrap</li>
+                    <li>JavaScript</li>
+                    <li>Express.js & Node.js</li>
+                    <li>MySQL</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h4>Desain Grafis</h4>
+                <ul class="skill-list">
+                    <li>Canva</li>
+                    <li>PixelLab</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h4>Soft Skills</h4>
+                <ul class="skill-list">
+                    <li>Komunikasi</li>
+                    <li>Administrasi</li>
+                    <li>Presentasi</li>
+                    <li>Disiplin</li>
+                    <li>Cepat Belajar</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>FERDY</h1>
+                <div class="subtitle">Teknik Informatika • Semester 5</div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-user"></i> PROFIL SINGKAT</h2>
+                <div class="profile-text">
+                    Mahasiswa S1 Teknik Informatika (Semester 5) di Universitas Lamappapoleonro dengan pengalaman
+                    sebagai pemateri Microsoft Word dan Quizizz. Disiplin, cepat belajar, serta termotivasi untuk
+                    mendukung operasional, administrasi, dan pelayanan di toko ATK. Memiliki kemampuan komputer,
+                    programming, dan desain grafis untuk mendukung pengelolaan data dan presentasi visual.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-graduation-cap"></i> PENDIDIKAN</h2>
+                <div class="education-item">
+                    <div class="item-title">Universitas Lamappapoleonro</div>
+                    <div class="item-subtitle">Teknik Informatika • 2023 – sekarang</div>
+                    <div class="item-description">Semester 5 dengan fokus pada pengembangan aplikasi web dan mobile
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="item-title">MAN 2 Soppeng</div>
+                    <div class="item-subtitle">2020 – 2023</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-briefcase"></i> PENGALAMAN</h2>
+                <div class="experience-item">
+                    <div class="item-title">Pemateri Microsoft Word</div>
+                    <div class="item-subtitle">HIMATIKOM • 14 Juni 2025</div>
+                    <div class="item-description">
+                        Pelatihan Microsoft Office untuk mahasiswa
+                        <ul>
+                            <li>Mengajarkan Microsoft Word kepada peserta pelatihan</li>
+                            <li>Menyiapkan modul dan materi pembelajaran yang mudah dipahami</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="item-title">Sekretaris Umum HIMATIKOM</div>
+                    <div class="item-subtitle">2025 – 2026</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Mengelola administrasi dan dokumentasi organisasi</li>
+                            <li>Koordinasi kegiatan dan rapat organisasi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="item-title">Anggota PUBDOK HIMATIKOM</div>
+                    <div class="item-subtitle">2024 – 2025</div>
+                    <div class="item-description">
+                        <ul>
+                            <li>Membantu dokumentasi dan publikasi kegiatan</li>
+                            <li>Mengelola konten media sosial organisasi</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="item-title">Pemateri Quizizz untuk Guru SD</div>
+                    <div class="item-subtitle">Pelatihan Pendidikan</div>
+                    <div class="item-description">
+                        Mengajarkan penggunaan platform Quizizz untuk pembelajaran interaktif di sekolah dasar
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><i class="fas fa-trophy"></i> PRESTASI & SERTIFIKAT</h2>
+                <div class="achievement-item">
+                    <div class="item-title">Sertifikat Pemateri Microsoft Word</div>
+                    <div class="item-description">Pelatihan Microsoft Office - HIMATIKOM</div>
+                </div>
+                <div class="achievement-item">
+                    <div class="item-title">Sertifikasi Membuat Aplikasi Backend</div>
+                    <div class="item-description">Menggunakan Express.js - CODEPOLITAN Platform pembelajaran online
+                    </div>
+                </div>
+                <div class="achievement-item">
+                    <div class="item-title">Sertifikasi Developer Alibaba Cloud</div>
+                    <div class="item-description">Cloud computing dan development</div>
+                </div>
+            </div>
+
+            <div class="references">
+                <i class="fas fa-handshake"></i><br>
+                <strong>Referensi tersedia bila diminta</strong>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            // Hide download button
+            const downloadBtn = document.querySelector('.download-btn');
+            downloadBtn.style.display = 'none';
+
+            // Use window.print() which will open print dialog
+            // User can choose "Save as PDF" or "Microsoft Print to PDF"
+            window.print();
+
+            // Show download button again after print dialog
+            setTimeout(() => {
+                downloadBtn.style.display = 'block';
+            }, 1000);
+        }
+
+        // Alternative download method using html2pdf if needed
+        function downloadPDFAdvanced() {
+            const element = document.querySelector('.cv-container');
+            const downloadBtn = document.querySelector('.download-btn');
+
+            // Hide download button
+            downloadBtn.style.display = 'none';
+
+            // Configure options
+            const opt = {
+                margin: 0,
+                filename: 'CV_Ferdy_TeknikInformatika.pdf',
+                image: { type: 'jpeg', quality: 1.0 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff'
+                },
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait',
+                    compress: true
+                }
+            };
+
+            // Generate PDF
+            if (typeof html2pdf !== 'undefined') {
+                html2pdf().set(opt).from(element).save().then(() => {
+                    downloadBtn.style.display = 'block';
+                });
+            } else {
+                // Fallback to print
+                window.print();
+                setTimeout(() => {
+                    downloadBtn.style.display = 'block';
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+
+</html>
